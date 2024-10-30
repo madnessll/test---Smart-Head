@@ -17,7 +17,7 @@ Route::get('/genres/create', [GenreController::class, 'create'])->name('genres.c
 Route::post('/genres', [GenreController::class, 'store'])->name('genres.store');
 Route::get('/genres/{genre}', [GenreController::class, 'show'])->name('genres.show');
 Route::get('/genres/{genre}/edit', [GenreController::class, 'edit'])->name('genres.edit');
-Route::put('/genres/{genre}', [GenreController::class, 'update'])->name('genres.update');
+Route::patch('/genres/{genre}', [GenreController::class, 'update'])->name('genres.update');
 Route::delete('/genres/{genre}', [GenreController::class, 'delete'])->name('genres.delete');
 
 
@@ -27,6 +27,6 @@ Route::get('/movies/create', [MovieController::class, 'create'])->name('movies.c
 Route::post('/movies', [MovieController::class, 'store'])->name('movies.store');
 Route::get('/movies/{movie}', [MovieController::class, 'show'])->name('movies.show');
 Route::get('/movies/{movie}/edit', [MovieController::class, 'edit'])->name('movies.edit');
-Route::put('/movies/{movie}', [MovieController::class, 'update'])->name('movies.update');
+Route::patch('/movies/{movie}', [MovieController::class, 'update'])->name('movies.update');
 Route::delete('/movies/{movie}', [MovieController::class, 'delete'])->name('movies.delete');
 Route::patch('/movies/{movie}/publish', [MovieController::class, 'publish'])->name('movies.publish');

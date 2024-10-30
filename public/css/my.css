@@ -3,7 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+html {
+  color: white;
+}
 body {
   background-color: #212529;
 }
@@ -50,4 +52,12 @@ body {
 .main__link:active {
   background-color: #004085;
   transform: translateY(0);
+}
+.btn-custom {
+    background-color: #28a745; /* Замените на желаемый цвет */
+    color: white;
+}
+
+.btn-custom:hover {
+    background-color: #218838; /* Цвет при наведении */
 }
