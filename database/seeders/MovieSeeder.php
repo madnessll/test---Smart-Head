@@ -3,8 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\Movie;
+use App\Models\Genre; // Необходимо для получения жанров
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Storage;
+use Faker\Factory as Faker;
 
 class MovieSeeder extends Seeder
 {
@@ -13,28 +15,24 @@ class MovieSeeder extends Seeder
    */
   public function run(): void
   {
-    $movies = [
-      ['title' => 'Общество онор', 'poster_url' => 'onor.jpg'],
-      ['title' => 'Переводчик', 'poster_url' => 'translator.jpg'],
-      ['title' => 'Sheker', 'poster_url' => 'sheker.jpg'],
-      ['title' => 'Основатель', 'poster_url' => 'founder.jpg'],
-    ];
+    $faker = Faker::create('ru_RU');
 
-    foreach ($movies as $movieData) {
-      $posterPath = isset($movieData['poster']) && $movieData['poster']
-      ? 'posters/' . $movieData['poster']
-      : 'default_poster.jpg';
+    $genres = Genre::all();
 
+    for ($i = 0; $i < 200; $i++) {
+      $title = $faker->sentence(rand(2, 5)); 
 
-      if (!Storage::exists('public/' . $posterPath)) {
-        $posterPath = 'posters/default_poster.jpg';
-      }
+      $randomGenres = $genres->random(rand(1, 3))->pluck('id');
 
-      Movie::create([
-        'title' => $movieData['title'],
-        'is_published' => false, 
+      $posterPath = 'posters/default_poster.jpg';
+
+      $movie = Movie::create([
+        'title' => $title,
+        'is_published' => false,
         'poster_url' => $posterPath,
       ]);
+
+      $movie->genres()->attach($randomGenres);
     }
   }
 }
