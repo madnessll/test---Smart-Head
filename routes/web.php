@@ -5,9 +5,7 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\MovieController;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+
 
 Route::get('/', [MainController::class, 'index'])->name('main.index');
 

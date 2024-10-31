@@ -16,3 +16,9 @@
 
 <body>
 @yield('content')
+
+<style>
+  body {
+    color: white;
+  }
+</style>

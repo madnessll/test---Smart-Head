@@ -27,13 +27,13 @@ class MovieSeeder extends Seeder
 
 
       if (!Storage::exists('public/' . $posterPath)) {
-        $posterPath = 'default_poster.jpg';
+        $posterPath = 'posters/default_poster.jpg';
       }
 
       Movie::create([
         'title' => $movieData['title'],
         'is_published' => false, 
-        'poster_url' => 'storage/' . $posterPath,
+        'poster_url' => $posterPath,
       ]);
     }
   }

@@ -13,7 +13,7 @@
     <h2 class="main__title">Главная страница</h2>
     <div class="main__links">
       <a href="{{ route('genres.index') }}" class="main__link">Жанры</a>
-      <a href="#" class="main__link">Фильмы</a>
+      <a href="{{ route('movies.index') }}" class="main__link">Фильмы</a>
     </div>
   </section>
 </body>
