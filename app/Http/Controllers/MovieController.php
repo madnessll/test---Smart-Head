@@ -88,4 +88,12 @@ class MovieController extends Controller
 
     return redirect()->route('movies.index');
   }
+
+
+  public function publish(Movie $movie)
+  {
+    $movie->update(['is_published' => true]);
+
+    return redirect()->route('movies.index');
+  }
 }

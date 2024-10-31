@@ -21,7 +21,8 @@
                   <th>ID</th>
                   <th>Название</th>
                   <th>Опубликовано</th>
-                  <th colspan="3" class="text-center">Действия</th>
+                  <th style="width: 150px;">Опубликовать фильм</th>
+                  <th style="width: 250px;" colspan="3" class="text-center">Действия</th>
                 </tr>
               </thead>
               <tbody>
@@ -30,6 +31,15 @@
                   <td>{{ $movie->id }}</td>
                   <td>{{ $movie->title }}</td>
                   <td>{{ $movie->is_published ? 'Да' : 'Нет' }}</td>
+                  <td>
+                    <form action="{{ route('movies.publish', $movie->id) }}" method="POST" style="display:inline;">
+                      @csrf
+                      @method('PATCH')
+                      <button type="submit" class="border-0 bg-transparent">
+                        <i class="fa-solid fa-check text-success"></i>
+                      </button>
+                    </form>
+                  </td>
                   <td class="text-center">
                     <a href="{{ route('movies.show', $movie->id) }}"><i class="far fa-eye"></i></a>
                   </td>

@@ -27,4 +27,5 @@ Route::get('/movies/{movie}', [MovieController::class, 'show'])->name('movies.sh
 Route::get('/movies/{movie}/edit', [MovieController::class, 'edit'])->name('movies.edit');
 Route::patch('/movies/{movie}', [MovieController::class, 'update'])->name('movies.update');
 Route::delete('/movies/{movie}', [MovieController::class, 'delete'])->name('movies.delete');
+
 Route::patch('/movies/{movie}/publish', [MovieController::class, 'publish'])->name('movies.publish');
