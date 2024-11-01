@@ -11,7 +11,7 @@ class Movie extends Model
 
     protected $table = "movies";
     protected $guarded = false;
-
+    public $timestamps = false;
 
     public function genres()
     {
