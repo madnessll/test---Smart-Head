@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('title');
             $table->boolean('is_published')->default(false);
             $table->string('poster_url')->nullable();
-            $table->timestamps();
         });
     }
 
