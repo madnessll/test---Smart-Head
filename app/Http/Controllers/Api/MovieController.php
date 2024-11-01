@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Models\Movie;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\MovieResource;
 
 class MovieController extends Controller
 {
@@ -13,8 +14,8 @@ class MovieController extends Controller
 	 */
 	public function index()
 	{
-		$movies = Movie::paginate(10); 
-		return response()->json($movies);
+		$movies = Movie::with('genres')->paginate(10);;
+		return MovieResource::collection($movies);
 	}
 
 	/**
@@ -30,8 +31,8 @@ class MovieController extends Controller
 	 */
 	public function show(string $id)
 	{
-		$movie = Movie::findOrFail($id);
-		return response()->json($movie);
+		$movie = Movie::with('genres')->findOrFail($id);
+		return new MovieResource($movie);
 	}
 
 	/**
